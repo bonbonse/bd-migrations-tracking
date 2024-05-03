@@ -8,11 +8,11 @@ class App
 {
     public static function run()
     {
-        $header = require '/frontend/header.php';
-        $sidebar = require '/frontend/sidebar.php';
-        $content = require '/frontend/content.php';
+        $header = require $_SERVER['DOCUMENT_ROOT'] . '/frontend/header.php';
+        $sidebar = require $_SERVER['DOCUMENT_ROOT'] . '/frontend/sidebar.php';
+        $content = require $_SERVER['DOCUMENT_ROOT'] . '/frontend/content.php';
 
-        return "<!DOCTYPE html>
+        echo "<!DOCTYPE html>
         <html lang='en'>
         <head>
             <meta charset='UTF-8'>
