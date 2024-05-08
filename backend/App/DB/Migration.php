@@ -10,6 +10,7 @@ class Migration
     protected function up()
     {
         $db = new DB();
+        dd("Query in db - " . $db);
         $db->select('kinds', ['select' => 'id']);
 
         return self::SUCCESS;

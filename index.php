@@ -1,6 +1,6 @@
-<?php
-require __DIR__ . '/backend/autoload.php';
+﻿<?php
+ini_set('display_errors', 1);
 
-use App\App;
+require_once(__DIR__ . '/application/autoload.php');
+require_once(__DIR__ . '/application/bootstrap.php');
 
-App::run();

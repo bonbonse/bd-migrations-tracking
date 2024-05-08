@@ -51,14 +51,17 @@ class DB
 
     public function query($sql): bool | array
     {
-        return $this
-            ->connection
-            ->query($sql)
-            ->fetchAll();
+        return $this->connection->query($sql)->fetchAll();
     }
 
-    public function update()
+    public static function showTables()
     {
+        dd(self::query("SHOW TABLES"));
+
+//        $tables = self::query("SHOW TABLES");
+//        foreach ($tables as $table) {
+//            echo "<div><a onclick='window.location=`index.php?table=${table}`'>" . $table . "<a></div>";
+//        }
     }
 
     public function delete()
