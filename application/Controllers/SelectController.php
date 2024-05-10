@@ -3,16 +3,13 @@
 namespace Controllers;
 
 use Core\Controller;
-use Core\View;
-use DB\DB;
-use Models\Structure;
-use Models\Tables;
+use Models\Select;
 
-class StructureController extends Controller
+class SelectController extends Controller
 {
     public function __construct()
     {
-        $this->model = new Structure();
+        $this->model = new Select();
         parent::__construct();
     }
 
@@ -21,6 +18,6 @@ class StructureController extends Controller
         $this->model->get_data();
         $data = parent::index();
 
-        $this->view->generate('structure', 'template_view', $data);
+        $this->view->generate('select', 'template_view', $data);
     }
 }

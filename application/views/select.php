@@ -1,16 +1,18 @@
 <?php
+
 echo "<div class='structure'>
 <div>Комментарий: Таблица - Контент структура</div>
 ";
 
+
 if (count($data['result']) > 0) {
     echo '<table class="table">';
-    echo '<tr><th>Field</th><th>Type</th><th>Key</th></tr>';
+    echo '<tr><th>name</th><th>surname</th><th>age</th></tr>';
     foreach ($data['result'] as $field) {
         echo '<tr>';
-        echo '<td>' . $field["Field"] . '</td>';
-        echo '<td>' . $field['Type'] . '</td>';
-        echo '<td>' . $field['Key'] . '</td>';
+        echo '<td>' . $field["name"] . '</td>';
+        echo '<td>' . $field['surname'] . '</td>';
+        echo '<td>' . $field['age'] . '</td>';
         echo '</tr>';
     }
     echo '</table>';

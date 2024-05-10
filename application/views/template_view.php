@@ -5,7 +5,6 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
 		<title>r</title>
-		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
               rel="stylesheet"
@@ -15,60 +14,37 @@
 
 	</head>
 	<body>
-		<div id="wrapper">
-			<div id="header">
-				<div id="logo">
-					<a href="/">ОЛОЛОША</span> <span class="cms">TEAM</span></a>
-				</div>
-				<div id="menu">
-					<ul>
-						<li class="first active"><a href="/">Главная</a></li>
-						<li><a href="/services">Услуги</a></li>
-						<li><a href="/portfolio">Портфолио</a></li>
-						<li class="last"><a href="/contacts">Контакты</a></li>
-					</ul>
-					<br class="clearfix" />
-				</div>
-			</div>
-			<div id="page">
-				<div id="sidebar">
-					<div class="side-box">
-						<h3>Таблицы</h3>
-						<?php
-                        if (isset($data['tables'])){
-                            var_dump($data['tables']);
-                        }
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="main">Select</a>
+                        <a class="navbar-brand" href="structure?table=users">Structure</a>
+                        <a class="navbar-brand" href="main">Add</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <?php
+                foreach ($data['tables'][0] as $table){
+                    echo "<div>" . $table . "</div>";
+                }
+                ?>
+            </div>
+            <div class="col">
+                <table class="table">
+                <?php include $content_view?>
+                </table>
+            </div>
+            <div class="col">
+                Migrations etr te tttttttttttttttttttttttttttttttttttttttt
+            </div>
+        </div>
 
-                        ?>
-					</div>
-				</div>
-				<div id="content">
-					<div class="box">
-						<?php include 'application/views/'.$content_view; ?>
-					</div>
-					<br class="clearfix" />
-				</div>
-				<br class="clearfix" />
-			</div>
-			<div id="page-bottom">
-				<div id="page-bottom-sidebar">
-					<h3>Наши контакты</h3>
-					<ul class="list">
-						<li class="first">icq: 199199538</li>
-						<li>skypeid: vitalyswipe</li>
-						<li class="last">email: vitalyswipe@gmail.com</li>
-					</ul>
-				</div>
-				<div id="page-bottom-content">
-					<h3>О Компании</h3>
-					<p>О компании</p>
-				</div>
-				<br class="clearfix" />
-			</div>
-		</div>
-		<div id="footer">
-			<a href="/">Домой</a>
-		</div>
+    </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

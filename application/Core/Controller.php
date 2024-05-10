@@ -13,8 +13,11 @@ class Controller {
 	}
 	
 	// действие (action), вызываемое по умолчанию
-	function action_index()
+	function index()
 	{
-		// todo	
+        return $data = [
+            'tables'=>$this->model->tables,
+            'result'=>$this->model->result
+        ];
 	}
 }

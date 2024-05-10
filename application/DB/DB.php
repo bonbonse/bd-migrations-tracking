@@ -7,8 +7,10 @@ use PDOException;
 
 class DB
 {
-    public $tables = [];
+    public $tables;
+    public $result;
     public $connection;
+
 
     public function __construct()
     {
@@ -18,11 +20,8 @@ class DB
         $password = '';
 
         $this->connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-
-        $this->tables = $this->connection->query("SHOW TABLES")->fetchAll();//TODO: Убрать это в отдельный метод
     }
     public function query($sql){
-        $this->connection->query($sql)->fetchAll();
+        return $this->connection->query($sql)->fetchAll();
     }
-
 }

@@ -1,18 +1,15 @@
 <?php
-
 namespace Controllers;
 
 use Core\Controller;
 use Core\View;
-use DB\DB;
-use Models\Structure;
 use Models\Tables;
 
-class StructureController extends Controller
+class MainController extends Controller
 {
     public function __construct()
     {
-        $this->model = new Structure();
+        $this->model = new Tables();
         parent::__construct();
     }
 
@@ -21,6 +18,6 @@ class StructureController extends Controller
         $this->model->get_data();
         $data = parent::index();
 
-        $this->view->generate('structure', 'template_view', $data);
+        $this->view->generate('main', 'template_view', $data);
     }
 }
