@@ -12,8 +12,7 @@ class Route
 		$controllerName = 'Main';
 		$actionName = 'index';
 
-        $url_str = explode('?', $_SERVER['REQUEST_URI']); // делит на 2 то, что до '?' и то, что после
-
+        $url_str = explode('?', $_SERVER['REQUEST_URI']);
         $routes = explode('/', $url_str[0]);
         //$attributes = explode('&', $url_str[1]);
 
@@ -36,11 +35,6 @@ class Route
 
 		// подцепляем файл с классом контроллера
 		$controllerClass = "Controllers\\".$controllerName;
-
-//		if(!class_exists($controllerClass))
-//		{
-//		    Route::ErrorPage404();
-//		}
 
 		// создаем контроллер
 		$controller = new $controllerClass();

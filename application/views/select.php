@@ -12,7 +12,7 @@ if (count($data['result']) > 0) {
         echo '<tr>';
         echo '<td>' . $field["name"] . '</td>';
         echo '<td>' . $field['surname'] . '</td>';
-        echo '<td>' . $field['age'] . '</td>';
+        echo '<td>' . $field['age'] . '</td>'; // TODO: Поля у каждой таблицы разные - заменить
         echo '</tr>';
     }
     echo '</table>';

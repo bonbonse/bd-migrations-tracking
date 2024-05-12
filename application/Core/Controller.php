@@ -6,7 +6,10 @@ class Controller {
 	
 	public $model;
 	public $view;
-	
+
+	public $table;
+	public $rep;
+
 	public function __construct()
 	{
 		$this->view = new View();

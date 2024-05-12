@@ -21,7 +21,7 @@ class DB
 
         $this->connection = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     }
-    public function query($sql){
-        return $this->connection->query($sql)->fetchAll();
+    public function query($sql, $mode = PDO::FETCH_DEFAULT){
+        return $this->connection->query($sql)->fetchAll($mode);
     }
 }
