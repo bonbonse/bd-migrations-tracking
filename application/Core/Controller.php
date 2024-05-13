@@ -18,9 +18,19 @@ class Controller {
 	// действие (action), вызываемое по умолчанию
 	function index()
 	{
-        return $data = [
+	    $data = [
             'tables'=>$this->model->tables,
-            'result'=>$this->model->result
+            'result'=>$this->model->result,
+            'migrations' => false
         ];
+        if (!isset($data['tables'])){
+            //TODO: добавить условия, при которых таблиц нет
+        }
+        if (!isset($data['tables']['migrations'])){
+            //формируем таблицу миграций
+        }
+
+        return $data;
+
 	}
 }

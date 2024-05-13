@@ -9,8 +9,8 @@ class Blueprint
     protected $table;
     protected $columns;
 
-    function id($name = 'id') {
-        $this->addColumn($name, 'INT PRIMARY KEY');
+    function id($column = 'id', $type = 'INT PRIMARY KEY') {
+        $this->addColumn($column, $type);
     }
 
     function string($column, $length = null) {
@@ -18,14 +18,13 @@ class Blueprint
         if (isset($length))
             $type = 'varchar(' . $length . ')';
 
-
         $this->addColumn($column, $type);
     }
     function int($name) {
         $this->addColumn($name, 'INT');
     }
-    function timestamps() {
-        //TODO:
+    function timestamps($column = 'date') {
+        $this->addColumn($column, 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP');
     }
 
     function addColumn($name, $type, $param = null){
