@@ -27,7 +27,8 @@ class CreateMigrationsController extends Controller
             $table->string('migration');
             $table->timestamps();
         });
-        //возможно, нужно сформировать миграцию и уже потом её применить
+        //нужно сформировать миграцию и уже потом её применить
+
 
         $this->view->generate('main', 'template_view', $data);
     }

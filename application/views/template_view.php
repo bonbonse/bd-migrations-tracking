@@ -37,16 +37,8 @@ $table = $_GET['table']; ?>
         </div>
         <div class="col">
             <?php
-            if ($data['migrations'] === false){
-                echo '<a href="createmigrations">
-                    <button type="button" class="btn btn-light" >Создать таблицу миграций
-                    </button></a>';
-            }
-            else {
-                var_dump($data['tables']['migrations']);
-            }
+            include 'migrations.php';
             ?>
-
         </div>
     </div>
 

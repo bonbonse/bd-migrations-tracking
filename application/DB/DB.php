@@ -7,8 +7,7 @@ use PDOException;
 
 class DB
 {
-    public $tables;
-    public $result;
+
     public $connection;
 
 

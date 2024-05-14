@@ -7,6 +7,6 @@ class Tables extends Model
 {
     public function get_data()
     {
-        $this->tables = $this->query("SHOW TABLES");
+        parent::get_data();
     }
 }

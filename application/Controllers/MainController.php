@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use Cache\Cache;
 use Core\Controller;
 use Core\View;
 use Migrations\create_users;

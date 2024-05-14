@@ -8,7 +8,6 @@ class Controller {
 	public $view;
 
 	public $table;
-	public $rep;
 
 	public function __construct()
 	{
@@ -20,17 +19,10 @@ class Controller {
 	{
 	    $data = [
             'tables'=>$this->model->tables,
-            'result'=>$this->model->result,
-            'migrations' => false
+            'migrations'=>$this->model->migrations,
+            'result'=>$this->model->result
         ];
-        if (!isset($data['tables'])){
-            //TODO: добавить условия, при которых таблиц нет
-        }
-        if (!isset($data['tables']['migrations'])){
-            //формируем таблицу миграций
-        }
 
         return $data;
-
 	}
 }
