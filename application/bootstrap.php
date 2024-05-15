@@ -1,8 +1,14 @@
 <?php
 use Core\Route;
 
-//echo "<pre>";
-//print_r(get_declared_classes());
-//echo "</pre>";
+require_once('helpers.php');
+
 // подключаем файлы ядра
-Route::start(); // запускаем маршрутизатор
+
+try {
+    Route::start(); // запускаем маршрутизатор
+} catch (Exception $e) {
+    dump($e->getMessage());
+    dump($e->getTrace());
+    die();
+}
