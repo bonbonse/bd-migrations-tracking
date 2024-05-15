@@ -21,6 +21,8 @@ class MainController extends Controller
         $this->model->get_data();
         $data = parent::index();
 
+        MigrationsInProject::createMigration('create', 'table');
+
         $this->view->generate('main', 'template_view', $data);
     }
 }
