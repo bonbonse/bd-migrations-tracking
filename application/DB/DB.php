@@ -7,9 +7,7 @@ use PDOException;
 
 class DB
 {
-
     public $connection;
-
 
     public function __construct()
     {
@@ -22,5 +20,47 @@ class DB
     }
     public function query($sql, $mode = PDO::FETCH_DEFAULT){
         return $this->connection->query($sql)->fetchAll($mode);
+    }
+    public function select($table, $fields = '*', $options = null){
+        $sql = "SELECT $fields FROM $table ";
+        if ($options !== null){
+            $sql . "WHERE $options";
+        }
+
+        return $this->query($sql);
+    }
+    public function update($table, $columns, $values, $condition){
+        $sql = "UPDATE $table SET ";
+        foreach ($columns as $column){
+            foreach ($values as $value){
+                //TODO:
+            }
+        }
+        $sql .= "WHERE " . $condition;
+
+        return $this->query($sql);
+    }
+    public function delete($options){
+        $sql = "";
+
+
+        return $this->query($sql);
+    }
+    public function insert($table, $columns = null, $values){
+        $sql = "INSERT INTO $table ";
+        if ($columns !== null){
+            $sql = "(";
+            foreach ($columns as $column) {
+                $sql .= $column . ", "; //TODO запятую в конце убрать
+            }
+            $sql .=  ") ";
+        }
+
+        $sql .=  "VALUES ";
+        foreach ($values as $value) {
+            $sql .= $value . ", "; //TODO запятую в конце убрать
+        }
+        $sql .= ");";
+        $this->query($sql);
     }
 }

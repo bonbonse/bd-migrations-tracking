@@ -13,10 +13,10 @@ class Schema
     static $username = 'root';
     static $password = '';
 
-    static function getConnection()
+    static function connection()
     {
-//        return new PDO("mysql:host=". self::$host. ";
-//        dbname=" . self::$dbname . ", " . self::$username . ", " . self::$password);
+        return new PDO("mysql:host=". self::$host. ";
+        dbname=" . self::$dbname . ", " . self::$username . ", " . self::$password);
     }
 
     static function create($tableName, $callback)
@@ -34,7 +34,17 @@ class Schema
             $sql .= ", "; //TODO: Запятую убрать в конце
         }
         $sql .= ");";
-        var_dump($sql);
-        // TODO: Отправляем запрос
+
+        self::query($sql);
     }
+
+    static function drop($tableName){
+        $sql = "DROP TABLE $tableName";
+        self::query($sql);
+    }
+
+    static function query($sql, $mode = PDO::FETCH_DEFAULT){
+        return self::connection()->query($sql)->fetchAll($mode);
+    }
+
 }
