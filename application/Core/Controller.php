@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Modules\MigrationsInProject;
+
 class Controller {
 	
 	public $model;
@@ -17,9 +19,11 @@ class Controller {
 	// действие (action), вызываемое по умолчанию
 	function index()
 	{
-	    $data = [
+	    //Действующие таблицы в бд - Таблица миграций - Миграции в проекте
+        $files = MigrationsInProject::get();
+        $data = [
             'tables'=>$this->model->tables,
-            'migrations'=>$this->model->migrations,
+            'migrations'=> ['up' => $files, 'down' => $this->model->migrations, 'none' => $this->model->tables],
             'result'=>$this->model->result
         ];
 

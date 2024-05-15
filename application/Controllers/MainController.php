@@ -6,6 +6,7 @@ use Core\Controller;
 use Core\View;
 use Migrations\create_users;
 use Models\Tables;
+use Modules\MigrationsInProject;
 
 class MainController extends Controller
 {
@@ -19,8 +20,6 @@ class MainController extends Controller
     {
         $this->model->get_data();
         $data = parent::index();
-
-        create_users::up();
 
         $this->view->generate('main', 'template_view', $data);
     }
