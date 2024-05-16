@@ -30,10 +30,7 @@ class Route
 		if ($controllerName === "404"){
 		    $controllerName = "Page404";
         }
-		if ($controllerName === "api"){
 
-		    die();
-        }
 		// добавляем префиксы
 		$controllerName = ucfirst($controllerName).'Controller';
 
@@ -43,7 +40,6 @@ class Route
 		// создаем контроллер
 		$controller = new $controllerClass();
 		$action = $actionName;
-
 
         if(method_exists($controller, $action))
 		{
@@ -56,10 +52,6 @@ class Route
 		}
 	
 	}
-
-	static function get($uri, $request){
-
-    }
 
 	static function ErrorPage404()
 	{

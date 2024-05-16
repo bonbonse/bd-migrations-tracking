@@ -13,7 +13,7 @@ else {
     foreach ($data['migrations']['up'] as $m) {
         echo  "<div>
         <span>" . $m . "</span>
-        <span><button>откатить</button></span>
+        <span><button onclick='downMigration(\"$m\")'>откатить</button></span>
     </div>";
     }
     echo "<div>ненакатанные миграции</div>";
@@ -21,7 +21,7 @@ else {
     foreach ($data['migrations']['down'] as $m) {
         echo  "<div>
         <span>" . $m . "</span>
-        <span><button>накатить</button></span>
+        <span><button onclick='upMigration(\"$m\")'>откатить</button></span>
     </div>";
     }
 
@@ -30,7 +30,7 @@ else {
     foreach ($data['migrations']['none'] as $m) {
         echo  "<div>
         <span>" . $m . "</span>
-        <span><button id='showmore-button'>создать</button></span>
+        <span><button onclick='createMigration(\"$m\")'>создать</button></span>
     </div>";
     }
 }
@@ -38,29 +38,54 @@ else {
 
 
 <script>
-    $(function(){
-        $('#showmore-button').click(function (){
-            console.log($(this))
-            var $target = $(this);
-            var page = $target.attr('data-page');
-            page++;
+    function upMigration(migration) {
 
-            $.ajax({
-                url: '/ajax.php?page=' + page,
-                dataType: 'html',
-                success: function(data){
-                    $('#showmore-list .prod-list').append(data);
-                }
-            });
-
-            $target.attr('data-page', page);
-            if (page ==  $target.attr('data-max')) {
-                $target.hide();
+        $.ajax({
+            url: '/api/upMigration',
+            type: 'POST',
+            data: {
+                migration: migration
+            },
+            success: function(response) {
+                console.log(response)
+            },
+            error: function(error) {
+                console.log(error);
             }
-
-            return false;
         });
-    });
+    }
+    function downMigration(migration) {
+
+        $.ajax({
+            url: '/api/downMigration',
+            type: 'POST',
+            data: {
+                migration: migration
+            },
+            success: function(response) {
+                console.log(response)
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+    function createMigration(migration) {
+
+        $.ajax({
+            url: '/api/createMigration',
+            type: 'POST',
+            data: {
+                migration: migration
+            },
+            success: function(response) {
+                console.log(response)
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
 </script>
 
 

@@ -6,7 +6,7 @@ use Core\Migration;
 use Modules\Blueprint;
 use Modules\Schema;
 
-return new class extends Migration //Класс пустой
+class create_users extends Migration //Класс пустой
 {
     public function up() 
     {
@@ -19,5 +19,7 @@ return new class extends Migration //Класс пустой
             }
         );
     }
-    //TODO: down
+    public function down(){
+        echo "Я даун";
+    }
 };

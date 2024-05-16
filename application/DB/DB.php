@@ -63,7 +63,7 @@ class DB
         return $this->query($sql);
     }
 
-    public function insert($table, $columns = null, $values)
+    public function insert($table, $values, $columns = null)
     {
         $sql = "INSERT INTO $table ";
         if ($columns !== null) {
