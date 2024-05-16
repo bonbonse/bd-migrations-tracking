@@ -5,7 +5,7 @@ echo "<div class='structure'>
 ";
 
 
-if (count($data['result']) > 0) {
+if (isset($data['result'])) {
     echo '<table class="table">';
     echo '<tr><th>name</th><th>surname</th><th>age</th></tr>';
     foreach ($data['result'] as $field) {

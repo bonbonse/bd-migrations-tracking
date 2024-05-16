@@ -6,9 +6,9 @@ use Core\Migration;
 use Modules\Blueprint;
 use Modules\Schema;
 
-class create_users extends Migration //Класс пустой
+return new class extends Migration //Класс пустой
 {
-    static function up() //TODO: Нужна ли static?
+    public function up() 
     {
         Schema::create(
             'test',
@@ -20,4 +20,4 @@ class create_users extends Migration //Класс пустой
         );
     }
     //TODO: down
-}
+};
