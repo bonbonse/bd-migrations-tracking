@@ -15,13 +15,13 @@ class MigrationsInProject
         }
         return $files;
     }
-    static function createMigration($action, $tableName){
+
+    static function createFileMigration($action, $tableName){
         $fullname =  date('y_m_d_hms') . "_" .$action . "_" . $tableName . '.php';
         $file = fopen(self::$path . '/' . $fullname, 'w');
         fwrite($file, Notice::createMigrations($tableName));
-        var_dump($fullname);
-
-        //TODO: Создать файл
-        //TODO: Внести код в файл зависимости от $action
+    }
+    static function getAnonymousClass($fileName){
+        return (require self::$path . '/' . $fileName);
     }
 }

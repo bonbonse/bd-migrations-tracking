@@ -1,14 +1,5 @@
 <?php
 
-
-namespace Modules;
-
-
-class Notice
-{
-    static function createMigrations($tableName){
-        return '<?php
-
 namespace Migrations;
 
 use Core\Migration;
@@ -20,7 +11,7 @@ return new class extends Migration //Класс пустой
     public function up() 
     {
         Schema::create(
-            "' . $tableName . '",
+            "catalog",
             function (Blueprint $table) { 
             
             }
@@ -30,6 +21,4 @@ return new class extends Migration //Класс пустой
         echo "даун";
     }
 };
-        ';
-    }
-}
+        

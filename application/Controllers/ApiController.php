@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Core\Controller;
 use Migrations;
+use Modules\MigrationsInProject;
 
 
 class ApiController extends Controller
@@ -21,28 +22,24 @@ class ApiController extends Controller
         //$this->view->generate('main', 'template_view', $data);
     }
     function upMigration(){
-        $fileName = $_POST['migration'];
-
-        die();
-        $migration = new $migrationName[0]();
-        var_dump($migration);
-        $migration->up();
+        $anonymousMigration = MigrationsInProject::getAnonymousClass($this->post('migration'));
+        $anonymousMigration->up();
 
         return json_encode(['success' => true]);
     }
     function downMigration(){
-        $fileName = $_POST['migration'];
-        $migrationName = explode('.', $fileName);
-        $migration = new create_users(); //TODO: исправть на $migrationName[0]
-        var_dump($migration);
-        $migration->down();
-        var_dump($migration);
+        $anonymousMigration = MigrationsInProject::getAnonymousClass($this->post('migration'));
+        $anonymousMigration->down();
+
         return json_encode(['success' => true]);
     }
     function createMigration(){
-        $migrationName = $_POST['migration'];
-        //TODO: Создать миграцию
+        MigrationsInProject::createFileMigration('create', $this->post('migration'));
+
         return json_encode(['success' => true]);
     }
 
+    private function post(string $data){
+        return $_POST["$data"];
+    }
 }
