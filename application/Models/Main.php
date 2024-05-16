@@ -3,7 +3,7 @@ namespace Models;
 
 use Core\Model;
 
-class Tables extends Model
+class Main extends Model
 {
     public function get_data()
     {

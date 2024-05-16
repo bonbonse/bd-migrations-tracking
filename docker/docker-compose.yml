@@ -21,7 +21,7 @@ services:
     networks:
       - net
     env_file:
-      - '../.env'
+      - '../.env.example'
     container_name: ${MYSQL_HOST}
 networks:
   net:

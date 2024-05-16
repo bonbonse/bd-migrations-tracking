@@ -14,6 +14,5 @@ class Model extends DB
 	{
         $this->tables = $this->query("SHOW TABLES", PDO::FETCH_COLUMN);
         $this->migrations = $this->query("SELECT * FROM migrations", PDO::FETCH_COLUMN);
-        var_dump($this->migrations);
     }
 }

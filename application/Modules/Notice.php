@@ -17,7 +17,7 @@ use Modules\Schema;
 
 return new class extends Migration //Класс пустой
 {
-    static function up() //TODO: Нужна ли static?
+    public function up() //TODO: Нужна ли static?
     {
         Schema::create(
             "' . $tableName . '",

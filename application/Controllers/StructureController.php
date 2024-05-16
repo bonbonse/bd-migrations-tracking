@@ -6,7 +6,7 @@ use Core\Controller;
 use Core\View;
 use DB\DB;
 use Models\Structure;
-use Models\Tables;
+use Models\Main;
 
 class StructureController extends Controller
 {

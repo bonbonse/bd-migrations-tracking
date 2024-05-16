@@ -18,8 +18,7 @@ class DB
         $this->connection = new PDO(
             "mysql:host=$host;dbname=$db",
             $user,
-            $password
-        );
+            $password);
     }
 
     public function select($table, $fields = '*', $options = null)
@@ -60,7 +59,6 @@ class DB
     public function delete($options)
     {
         $sql = "";
-
 
         return $this->query($sql);
     }
