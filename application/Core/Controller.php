@@ -20,7 +20,7 @@ class Controller {
 	function index()
 	{
 	    //Действующие таблицы в бд - Таблица миграций - Миграции в проекте
-        $this->model->get_data();
+        $this->model->getData();
 
         $files = MigrationsInProject::get();
         $data = [

@@ -2,7 +2,7 @@
 namespace Controllers;
 
 use Core\Controller;
-use Migrations;
+use Models\Table;
 use Modules\MigrationsInProject;
 
 
@@ -34,7 +34,11 @@ class ApiController extends Controller
         return json_encode(['success' => true]);
     }
     function createMigration(){
-        MigrationsInProject::createFileMigration('create', $this->post('migration'));
+        $post = $this->post('migration');
+        $this->model = new Table();
+        $fields = $this->model->getTable($post);
+
+        MigrationsInProject::createFileMigration('create', $post, $fields);
 
         return json_encode(['success' => true]);
     }

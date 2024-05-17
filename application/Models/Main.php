@@ -5,8 +5,8 @@ use Core\Model;
 
 class Main extends Model
 {
-    public function get_data()
+    public function getData()
     {
-        parent::get_data();
+        parent::getData();
     }
 }

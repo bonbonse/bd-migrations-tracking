@@ -5,11 +5,11 @@ use Core\Model;
 
 class Structure extends Model
 {
-    public function get_data()
+    public function getData()
     {
         $table = $_GET['table'];
 
         $this->result = $this->query("DESCRIBE $table");
-        parent::get_data();
+        parent::getData();
     }
 }

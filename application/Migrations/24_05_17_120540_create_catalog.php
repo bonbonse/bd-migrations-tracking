@@ -13,12 +13,16 @@ return new class extends Migration //Класс пустой
         Schema::create(
             "catalog",
             function (Blueprint $table) { 
-            
+            $table->id();
+$table->varchar(50)(name);
+$table->int(price);
+$table->text(discription);
+
             }
         );
     }
     public function down(){
-        echo "даун";
+        Schema::drop("catalog");
     }
 };
         

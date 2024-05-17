@@ -10,9 +10,10 @@ class Model extends DB
     public $migrations;
     public $result;
 	// метод выборки данных
-	public function get_data()
+	public function getData()
 	{
         $this->tables = $this->query("SHOW TABLES", PDO::FETCH_COLUMN);
         $this->migrations = $this->query("SELECT * FROM migrations", PDO::FETCH_COLUMN);
     }
+
 }
