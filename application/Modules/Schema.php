@@ -3,6 +3,7 @@
 
 namespace Modules;
 
+use DB\DB;
 use PDO;
 use PDOException;
 
@@ -44,9 +45,8 @@ class Schema
     }
 
     static function query($sql, $mode = PDO::FETCH_DEFAULT){
-        var_dump(self::connection());
-        die();
-        return self::connection()->query($sql)->fetchAll($mode);
+        $db = new DB();
+        return $db->query($sql);
     }
 
 }
