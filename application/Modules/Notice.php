@@ -43,10 +43,21 @@ return new class extends Migration //Класс пустой
             $res .= '$table->';
             if ($field['Key'] === 'PRI'){
                 $res .=  'id';
-                $res .= $field['Field'] === 'id' ? '(' . $field['Field'] . ');' : '();';
+                $res .= $field['Field'] === 'id' ? '();' : '(' . $field['Field'] . ');';
             }
             else {
-                $res .= $field['Type']. '(' . $field['Field'] . ');';
+                if (strncmp($field['Type'], 'varchar', 7) === 0){
+                    $type = explode('(', $field['Type']);
+                    $res .= 'string' . '(' . '"' . $field['Field'] . '"' . ', ' .$type[1] . ';';
+                }
+                else if (strncmp($field['Type'], 'date', 4) === 0){
+                    $res .= $field['Field'] === 'date' ?
+                        'timestamps' . '()' . ';' :
+                        'timestamps' . '(' . '"' . $field['Field'] . '"' . ')'  . ';';
+                    }
+                else {
+                    $res .= $field['Type']. '(' . '"' . $field['Field'] . '"' . ')';
+                }
             }
             $res .= PHP_EOL;
         }

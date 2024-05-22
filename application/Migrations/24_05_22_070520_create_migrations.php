@@ -11,17 +11,17 @@ return new class extends Migration //Класс пустой
     public function up() 
     {
         Schema::create(
-            "migration",
+            "migrations",
             function (Blueprint $table) { 
-            $table->id(id);
-$table->varchar(50)(name);
-$table->date(dateCreated);
+            $table->id();
+$table->string("name", 50);
+$table->timestamps("dateCreated");
 
             }
         );
     }
     public function down(){
-        Schema::drop("migration");
+        Schema::drop("migrations");
     }
 };
         

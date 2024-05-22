@@ -24,12 +24,15 @@ class Blueprint
         $this->addColumn($name, 'INT');
     }
     function timestamps($column = 'date') {
-        $this->addColumn($column, 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP');
+        $this->addColumn($column, 'DATETIME DEFAULT CURRENT_TIMESTAMP');
     }
 
     function addColumn($name, $type, $param = null){
         $this->columns[] =  [$name, $type];
     }
+
+
+
     public function getColumns(){
         return $this->columns;
     }

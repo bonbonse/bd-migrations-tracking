@@ -26,6 +26,7 @@ class Schema
         $table = new Blueprint();
         $callback($table);
         $columns = $table->getColumns();
+        var_dump($columns);
 
         $sql = "CREATE TABLE $tableName("; // TODO: Стоит ли формировать sql строку здесь?
         foreach ($columns as $column){
@@ -34,7 +35,9 @@ class Schema
             }
             $sql .= ", "; //TODO: Запятую убрать в конце
         }
+        $sql = substr($sql, 0, -3);
         $sql .= ");";
+        var_dump($sql);
 
         self::query($sql);
     }
@@ -46,7 +49,7 @@ class Schema
 
     static function query($sql, $mode = PDO::FETCH_DEFAULT){
         $db = new DB();
-        return $db->query($sql);
+        $db->query($sql);
     }
 
 }

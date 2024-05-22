@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-$table = $_GET['table']; ?>
+//$table = $_GET['table']; ?>
 
 <html>
 <head>
