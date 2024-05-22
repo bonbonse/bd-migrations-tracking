@@ -11,18 +11,17 @@ return new class extends Migration //Класс пустой
     public function up() 
     {
         Schema::create(
-            "catalog",
+            "migration",
             function (Blueprint $table) { 
-            $table->id();
+            $table->id(id);
 $table->varchar(50)(name);
-$table->int(price);
-$table->text(discription);
+$table->date(dateCreated);
 
             }
         );
     }
     public function down(){
-        Schema::drop("catalog");
+        Schema::drop("migration");
     }
 };
         

@@ -2,6 +2,7 @@
 namespace Core;
 
 use DB\DB;
+use Exception;
 use PDO;
 
 class Model extends DB
@@ -12,8 +13,15 @@ class Model extends DB
 	// метод выборки данных
 	public function getData()
 	{
-        $this->tables = $this->query("SHOW TABLES", PDO::FETCH_COLUMN);
-        $this->migrations = $this->query("SELECT * FROM migrations", PDO::FETCH_COLUMN);
+	    try{
+            $this->tables = $this->query("SHOW TABLES", PDO::FETCH_COLUMN);
+            $this->migrations = $this->query("SELECT * FROM migrations", PDO::FETCH_COLUMN);
+        }
+        catch (Exception $e){
+	        var_dump($e->getMessage());
+
+        }
+
     }
 
 }

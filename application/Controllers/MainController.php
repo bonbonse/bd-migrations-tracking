@@ -4,11 +4,12 @@ namespace Controllers;
 use Cache\Cache;
 use Core\Controller;
 use Core\View;
-use Migrations\create_users;
 use Models\Main;
 use Models\Select;
 use Models\Structure;
+use Modules\Blueprint;
 use Modules\MigrationsInProject;
+use Modules\Schema;
 
 class MainController extends Controller
 {
@@ -21,6 +22,8 @@ class MainController extends Controller
     function index()
     {
         $data = parent::index();
+
+
 
         $this->view->generate('main', 'template_view', $data);
     }

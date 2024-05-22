@@ -6,7 +6,8 @@ namespace Modules;
 
 class Notice
 {
-    static function createMigrations($tableName, $fields){
+    static function createMigrations($tableName, $fields): string
+    {
         $fieldsText = self::fieldsToText($fields);
         return '<?php
 
@@ -35,7 +36,8 @@ return new class extends Migration //Класс пустой
     }
 
     // TODO: обработка text, varchar(50) и т.д.
-    static function fieldsToText($fields){
+    static function fieldsToText($fields): string
+    {
         $res = '';
         foreach ($fields as $field){
             $res .= '$table->';

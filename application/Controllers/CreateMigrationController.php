@@ -9,7 +9,7 @@ use DB\DB;
 use Modules\Blueprint;
 use Modules\Schema;
 
-class CreateMigrationsController extends Controller
+class CreateMigrationController extends Controller
 {
     public function __construct()
     {
@@ -21,6 +21,8 @@ class CreateMigrationsController extends Controller
     {
         //$this->model->get_data();
         $data = parent::index();
+
+        echo "hi";
 
         Schema::create('migrations', function (Blueprint $table){
             $table->id();
