@@ -40,7 +40,7 @@ class Query
             '!='
         ];
 
-        $isAvailableOperator = in_array('operator', $availableOperators);
+        $isAvailableOperator = in_array($operator, $availableOperators);
 
         if ($isAvailableValueType && $isAvailableOperator) {
             $this->where[] = [
