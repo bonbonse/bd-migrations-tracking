@@ -14,17 +14,19 @@ class Query
         return new self();
     }
 
-    public function from(string $table): void
+    public function from(string $table): Query
     {
         $this->table = $table;
+        return $this;
     }
 
-    public function select(array $select): void
+    public function select(array $select): Query
     {
         $this->select = $select;
+        return $this;
     }
 
-    public function where(string $column, string $operator, $value): void
+    public function where(string $column, string $operator, $value): Query
     {
         $isAvailableValueType = is_string($value)
             || is_numeric($value)
@@ -49,14 +51,16 @@ class Query
                 'value' => $value
             ];
         }
+        return $this;
     }
 
-    public function orderBy(string $column, string $direction = 'ASC'): void
+    public function orderBy(string $column, string $direction = 'ASC'): Query
     {
         $this->orderBy[] = [
             'column' => $column,
             'direction' => strtoupper($direction) === 'ASC' ? 'ASC' : 'DESC'
         ];
+        return $this;
     }
 
     public function getTable(): string
