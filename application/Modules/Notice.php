@@ -56,7 +56,7 @@ return new class extends Migration //Класс пустой
                         'timestamps' . '(' . '"' . $field['Field'] . '"' . ')'  . ';';
                     }
                 else {
-                    $res .= $field['Type']. '(' . '"' . $field['Field'] . '"' . ')';
+                    $res .= $field['Type']. '(' . '"' . $field['Field'] . '"' . ');';
                 }
             }
             $res .= PHP_EOL;

@@ -23,8 +23,6 @@ class MainController extends Controller
     {
         $data = parent::index();
 
-
-
         $this->view->generate('main', 'template_view', $data);
     }
     function select(){

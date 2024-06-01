@@ -1,29 +1,34 @@
 <?php
 
-echo "<div class='structure'>
-<div>Комментарий: Таблица - Контент структура</div>
+if (isset($data['result']) && count($data['result']) > 0) {
+    echo "<div class='structure'>
 ";
-
-
-if (isset($data['result'])) {
     echo '<table class="table">';
-    echo '<tr><th>name</th><th>surname</th><th>age</th></tr>';
+
+    $keys = array_keys($data['result'][0]);
+    echo '<tr>';
+    foreach ($keys as $key) {
+        echo '<th>' . $key . '</th>>';
+    }
+    echo '</tr>';
+
     foreach ($data['result'] as $field) {
         echo '<tr>';
-        echo '<td>' . $field["name"] . '</td>';
-        echo '<td>' . $field['surname'] . '</td>';
-        echo '<td>' . $field['age'] . '</td>'; // TODO: Поля у каждой таблицы разные - заменить
+        foreach ($keys as $key) {
+            echo '<td>' . $field["$key"] . '</td>';
+        }
         echo '</tr>';
     }
     echo '</table>';
+    echo "<div>
+<div>Индексы</div>";
 } else {
-    echo 'No fields found in the table';
+    echo 'Выберите таблицу';
 }
 
 
 
-echo "<div>
-<div>Индексы</div>";
+
 
 //$fields = $pdo->query("
 //SELECT index_name, index_type

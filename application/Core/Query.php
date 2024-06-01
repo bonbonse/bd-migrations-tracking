@@ -2,12 +2,15 @@
 
 namespace Core;
 
+use DB\DB;
+
 class Query
 {
     protected string $table;
     private array $where;
     private array $select;
     private array $orderBy;
+    private array $insert;
 
     public static function query()
     {
@@ -23,6 +26,19 @@ class Query
     public function select(array $select): Query
     {
         $this->select = $select;
+        return $this;
+    }
+    public function insert($table, array $values): Query
+    {
+        $db = new DB();
+
+        //$this->insert = $table;
+
+        $sql = 'insert into ' . $table . ' values (';
+        $sql .= '0, "' . $values[1]['Field'] . '", "' . $values[2]['Field'] . '");';
+        var_dump($sql);
+
+        $db->query($sql);
         return $this;
     }
 

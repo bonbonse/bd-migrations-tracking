@@ -30,10 +30,9 @@
             ?>
         </div>
         <div class="col">
-            <table class="table">
                 <?php
-                include $content_view ?>
-            </table>
+                include $content_view
+                ?>
         </div>
         <div class="col">
             <?php

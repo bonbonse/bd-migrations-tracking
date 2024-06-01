@@ -31,7 +31,7 @@ class DB
         return $this->query($sql);
     }
 
-    public function query($sql, $mode = PDO::FETCH_DEFAULT)
+    public function query($sql, $mode = PDO::FETCH_DEFAULT): array
     {
         $query = $this
             ->connection

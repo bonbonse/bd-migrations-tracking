@@ -7,9 +7,14 @@ class Structure extends Model
 {
     public function getData()
     {
-        $table = $_GET['table'];
+        $table = '';
+        if (isset($_GET['table']))
+            $table = $_GET['table'];
 
-        $this->result = $this->query("DESCRIBE $table");
+        if ($table !== '' && isset($table)){
+            $this->result = $this->query("DESCRIBE $table");
+        }
+
         parent::getData();
     }
 }

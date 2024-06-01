@@ -1,9 +1,9 @@
 <?php
-echo "<div class='structure'>
+
+if (isset($data['result'])) {
+    echo "<div class='structure'>
 <div>Комментарий: Таблица - Контент структура</div>
 ";
-
-if (count($data['result']) > 0) {
     echo '<table class="table">';
     echo '<tr><th>Field</th><th>Type</th><th>Key</th></tr>';
     foreach ($data['result'] as $field) {
@@ -14,14 +14,16 @@ if (count($data['result']) > 0) {
         echo '</tr>';
     }
     echo '</table>';
+    echo "<div>";
 } else {
-    echo 'No fields found in the table';
+    echo 'Выберите таблицу из списка таблиц';
 }
 
 
-
 echo "<div>
-<div>Индексы</div>";
+<button type='button' class='btn btn-secondary'>Изменить структуру</button>
+</div>";
+
 
 //$fields = $pdo->query("
 //SELECT index_name, index_type

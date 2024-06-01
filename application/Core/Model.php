@@ -19,9 +19,6 @@ class Model extends DB
         }
         catch (Exception $e){
 	        var_dump($e->getMessage());
-
         }
-
     }
-
 }

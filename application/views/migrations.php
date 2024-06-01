@@ -1,6 +1,14 @@
 <?php
 
-if (!isset($data['tables']['migrations'])){
+$isMigrations = false;
+//foreach ($data['tables'] as $t){
+//    if ($t === 'migrations'){
+//        $isMigrations = true;
+//        break;
+//    }
+//}
+
+if ($isMigrations){
     echo  "<div>
 <div>У вас нету таблицы migrations. Для продолжения работы её необходимо создать</div>
         <span><button onclick='createMigrationTable()'>Создать</button></span>
@@ -15,7 +23,7 @@ else{
                     </a>';
     }
     else {
-        echo "<div>накатанные миграции</div>";
+        echo "<div style='font-weight: bold; margin: 10px'>накатанные миграции</div>";
         //накатанные миграции
         foreach ($data['migrations']['up'] as $m) {
             echo  "<div>
@@ -23,7 +31,7 @@ else{
         <span><button onclick='downMigration(\"$m\")'>откатить</button></span>
     </div>";
         }
-        echo "<div>ненакатанные миграции</div>";
+        echo "<div style='font-weight: bold; margin: 10px'>ненакатанные миграции</div>";
         //ненакатанные миграции
         foreach ($data['migrations']['down'] as $m) {
             echo  "<div>
@@ -32,7 +40,7 @@ else{
     </div>";
         }
 
-        echo "<div>нет миграции</div>";
+        echo "<div style='font-weight: bold; margin: 10px'>нет миграции</div>";
         //нету миграции
         foreach ($data['migrations']['none'] as $m) {
             echo  "<div>
